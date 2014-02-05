@@ -1,0 +1,58 @@
+<p>This is the sandbox view.</p>
+
+<div>
+  <label>Filter:</label><input type="search" ng-model="search">
+</div>
+
+<div class="row" ng-controller="List">
+  <ul>
+    <li ng-repeat="person in people | filter:search">
+    {{person.name}} : {{person.age}} : {{person.phone}}
+      <button ng-click="remove($index)" class="first-{{$first}}">x</button>
+      <span ng-show="$first">First!</span>
+      <span ng-show="$last">Last!</span>
+      <span ng-show="$middle">Middle!</span>
+    </li>
+  </ul>
+
+  <span>There are {{people.length}} people in the list.</span>
+
+  <div>
+    <label>Name:</label><input ng-model="new_name">
+    <br>
+    <label>Age:</label><input type="number" ng-model="new_age">
+    <br>
+    <label>Phone Number:</label><input type="number" ng-model="new_phone">
+    <br>
+    <button ng-click="add()">Add</button>
+  </div>
+</div>
+
+<script>
+  var List = function($scope) {
+    $scope.people= [
+      { name: "Chris", age: 20, phone: 12345 },
+      { name: "Heather", age: 30, phone: 12345 },
+      { name: "Daniel", age: 50, phone: 12345 },
+      { name: "Tom", age: 50, phone: 12345 },
+      { name: "Jeffrey", age: 50, phone: 12345 }
+    ];
+
+    $scope.add = function () {
+      $scope.people.push({
+        name: $scope.new_name,
+        age: $scope.new_age,
+        phone: $scope.new_phone
+      })
+
+      // we set the model's to empty so that the form is cleared out
+      $scope.new_name = "";
+      $scope.new_age = "";
+    };
+
+    $scope.remove = function($index) {
+      $scope.people.splice($index, 1);
+    };
+  };
+  
+</script>
