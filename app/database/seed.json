@@ -1,0 +1,24 @@
+{
+  "Assets" : [
+    {
+      "name" : "Soda",
+      "quantity" : 10,
+      "description" : "Always tasty and refreshing."
+    },
+    {
+      "name" : "Diet Soda",
+      "quantity" : 20,
+      "description" : "Refreshing."
+    },
+    {
+      "name" : "Widgets",
+      "quantity" : 30,
+      "description" : "Assembled component."
+    },
+    {
+      "name" : "Sprockets",
+      "quantity" : 40,
+      "description" : "Makes it spin."
+    }
+  ]
+}

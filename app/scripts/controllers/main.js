@@ -9,8 +9,7 @@ angular.module('rtAssetManagerApp')
       'AngularJS',
       'Karma'
     ];
-    console.log($firebase);
-    var ref = new Firebase('https://m84x3ofsh2b.firebaseio-demo.com/');
-    $scope.messages = $firebase(ref);
-    console.log($scope.messages);
+
+    var ref = new Firebase('https://rtassetman.firebaseio.com/Assets');
+    $scope.rawAssets = $firebase(ref);
   });

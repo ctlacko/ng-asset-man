@@ -7,11 +7,27 @@
   <h3 class="text-muted">rt asset man web</h3>
 </div>
 
-<div class="jumbotron">
-  <h1>Asset Management Demo</h1>
-  <p class="lead">
-    Realtime backend provided by FireBase
-  </p>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">All Assets</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label>Filter Assets:</label>
+      <input type="search" class="form-control" ng-model="searchText">
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Description</th>
+    <tr ng-repeat="asset in rawAssets | array | filter:searchText">
+      <td><a href="#/edit/{{asset.idx}}">{{asset.name}}</td>
+      <td>{{asset.quantity}}</td>
+      <td>{{asset.description}}</td>
+    </tr>
+  </table>
 </div>
 
 <div class="footer">
